@@ -1,0 +1,105 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-10 py-4 mb-4">
+        <h2 class="mb-4">Resumo do Seu Perfil</h2>
+        
+        <div class="card mb-4">
+            <div class="card-header bg-primary text-white">
+                <h5>Informações Pessoais</h5>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <p><strong>Nome:</strong> {{ user_data.name }}</p>
+                        <p><strong>Email:</strong> {{ user_data.email }}</p>
+                        <p><strong>CPF:</strong> {{ user_data.cpf }}</p>
+                    </div>
+                    <div class="col-md-6">
+                        <p><strong>Data de Nascimento:</strong> {{ user_data.birth_date }}</p>
+                        <p><strong>Endereço:</strong> {{ user_data.address }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card mb-4">
+            <div class="card-header bg-success text-white">
+                <h5>Interesses em Esports</h5>
+            </div>
+            <div class="card-body">
+                <p><strong>Times Favoritos:</strong> {{ user_data.favorite_teams }}</p>
+                <p><strong>Eventos Participados:</strong> {{ user_data.events_attended }}</p>
+                <p><strong>Produtos Comprados:</strong> {{ user_data.merch_purchased }}</p>
+                <p><strong>Interesses:</strong> {{ user_data.interests }}</p>
+            </div>
+        </div>
+        
+        <div class="card mb-4">
+            <div class="card-header bg-info text-white">
+                <h5>Verificação de Documento</h5>
+            </div>
+            <div class="card-body">
+                {% if document_verified %}
+                    <div class="alert alert-success">
+                        <strong>Verificado com sucesso!</strong> Seu documento foi validado.
+                    </div>
+                {% else %}
+                    <div class="alert alert-danger">
+                        <strong>Não verificado.</strong> Por favor, envie um documento válido.
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+        
+        <div class="card mb-4">
+            <div class="card-header bg-warning text-dark">
+                <h5>Redes Sociais Conectadas</h5>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    {% for platform, data in social_data.items() %}
+                    <div class="col-md-6 mb-3">
+                        <h6>{{ platform|capitalize }}</h6>
+                        <p><strong>URL:</strong> <a href="{{ data.url }}" target="_blank">{{ data.url }}</a></p>
+                        <p><strong>Segue times de esports:</strong> {{ "Sim" if data.follows_esports else "Não" }}</p>
+                        <p><strong>Nível de atividade:</strong> {{ data.activity_level|capitalize }}</p>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header bg-dark text-white">
+                <h5>Perfis em Plataformas de Esports</h5>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    {% for platform, data in esports_profiles.items() %}
+                    <div class="col-md-6 mb-3">
+                        <h6>{{ platform|capitalize }}</h6>
+                        {% if data.valid %}
+                            <div class="alert alert-success">
+                                <strong>Perfil válido!</strong>
+                                <p>Tempo de conta: {{ data.account_age }}</p>
+                                <p>Atividade: {{ data.activity|capitalize }}</p>
+                            </div>
+                        {% else %}
+                            <div class="alert alert-danger">
+                                Perfil não validado
+                            </div>
+                        {% endif %}
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        
+        <div class="mt-4 text-center">
+            <button class="btn btn-primary btn-lg">Concluir Cadastro</button>
+        </div>
+    </div>
+</div>
+{% endblock %}

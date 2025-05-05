@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <h2 class="mb-4">Verificação de Documento</h2>
+        <p>Por favor, envie uma foto do seu documento de identificação (RG, CNH ou Passaporte) para verificação.</p>
+        
+        <form method="POST" enctype="multipart/form-data">
+            <div class="mb-3">
+                <label for="document" class="form-label">Documento de Identificação</label>
+                <input class="form-control" type="file" id="document" name="document" required>
+                <div class="form-text">Formatos aceitos: JPG, PNG, PDF (máx. 5MB)</div>
+            </div>
+            
+            <div class="alert alert-info">
+                <strong>Importante:</strong> A foto deve estar legível e mostrar claramente seu nome e foto.
+            </div>
+            
+            <button type="submit" class="btn btn-primary">Enviar Documento</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

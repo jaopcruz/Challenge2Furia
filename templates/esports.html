@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <h2 class="mb-4">Seus Perfis em Plataformas de Esports</h2>
+        <p>Vincule seus perfis em plataformas de esports para validar sua participação na comunidade.</p>
+        
+        <form method="POST">
+            <div class="mb-3">
+                <label for="furia_profile" class="form-label">Perfil FURIA</label>
+                <input type="url" class="form-control" id="furia_profile" name="furia_profile" placeholder="https://furia.gg/seuuser">
+            </div>
+            
+            <div class="mb-3">
+                <label for="faceit_profile" class="form-label">Perfil FaceIT</label>
+                <input type="url" class="form-control" id="faceit_profile" name="faceit_profile" placeholder="https://faceit.com/seuuser">
+            </div>
+            
+            <div class="mb-3">
+                <label for="steam_profile" class="form-label">Perfil Steam</label>
+                <input type="url" class="form-control" id="steam_profile" name="steam_profile" placeholder="https://steamcommunity.com/id/seuuser">
+            </div>
+            
+            <div class="mb-3">
+                <label for="other_profiles" class="form-label">Outros Perfis (ESL, Battlefy, etc.)</label>
+                <input type="url" class="form-control" id="other_profiles" name="other_profiles" placeholder="https://">
+            </div>
+            
+            <button type="submit" class="btn btn-primary">Finalizar Cadastro</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
