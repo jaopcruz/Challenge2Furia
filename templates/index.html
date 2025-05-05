@@ -6,17 +6,7 @@
     <h1 class="display-4">Know Your Fan</h1>
     <p class="lead">Sistema de perfil de fã de esports</p>
     <a href="{{ url_for('profile') }}" class="btn btn-primary btn-lg">Começar</a>
-    
-    <!-- Debug: Verifique se o CSS está carregando -->
-    <div class="mt-4 p-3 bg-light rounded">
-        <p class="text-success">✓ CSS carregado</p>
-        <p class="text-danger" id="js-check">✗ JavaScript não carregado</p>
-    </div>
+
 </div>
 
-<script>
-    // Verificação simples de JS
-    document.getElementById('js-check').className = 'text-success';
-    document.getElementById('js-check').innerHTML = '✓ JavaScript carregado';
-</script>
 {% endblock %}
