@@ -80,9 +80,3 @@ Estrutura do Projeto
   - templates: Arquivos HTML para renderização das páginas.
   - static: Arquivos estáticos, como CSS, JavaScript e imagens.
   - utils: Funções auxiliares para validação de documentos, redes sociais e perfis de esports.
-
-## Desenvolvimento
-Se desejar modificar ou estender a aplicação, edite os arquivos no diretório correspondente. Após realizar alterações, reinicie o servidor Flask para aplicar as mudanças.
-
-### Licença
-Este projeto é apenas para fins educacionais e não possui uma licença específica.
